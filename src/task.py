@@ -1,11 +1,12 @@
 class Product:
-    '''
+    """
     Класс Product обладает следующими свойствами:
         название (name),
         описание (description),
         цена (price),
         количество в наличии (quantity)
-    '''
+    """
+
     name: str
     description: str
     price: float
@@ -19,12 +20,13 @@ class Product:
 
 
 class Category:
-    '''
+    """
     Класс Category обладает следующими свойствами:
         название (name),
         описание (description),
         список товаров категории (products).
-    '''
+    """
+
     name: str
     description: str
     products: list
