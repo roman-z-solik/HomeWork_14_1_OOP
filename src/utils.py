@@ -13,6 +13,9 @@ def read_json(path: str) -> dict:
 
 
 def load_json_data(json_data):
+    '''
+    Функция читает информацию из JSON файла. На вход получает путь к файлу с данными,
+    возвращает словарь с данными из JSON файла.'''
     new_categorys = []
     for category in json_data:
         new_products = []
@@ -22,10 +25,3 @@ def load_json_data(json_data):
         new_categorys.append(Category(**category))
 
     return new_categorys
-
-
-if __name__ == '__main__':
-    data = read_json('../data/products.json')
-    cat_data = load_json_data(data)
-    print(cat_data[0].name)
-    print(cat_data[0].products[0].name)
