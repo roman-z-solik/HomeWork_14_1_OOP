@@ -19,24 +19,18 @@ class Product:
         self.quantity = quantity
 
 
-    # @classmethod
-    # def new_product(cls, name, description, price, quantity):
-    #     new_product = cls(name, description, price, quantity)
-    #     products = Category.products
-    #     for item in products:
-    #         return new_product
-    #
-    # @property
-    # def price(self):
-    #     return self.__price
-    #
-    #
-    # @price.setter
-    # def price(self, new_price) -> property | None:
-    #     if new_price <= 0:
-    #         print(f'Цена не должна быть нулевая или отрицательная')
-    #     else:
-    #         Product.price = new_price
+    @classmethod
+    def new_product(cls, parameters_list: list):
+        parameters = ''
+        parameters = parameters_list[0]
+        return parameters
+
+
+
+
+    @property
+    def price(self):
+        return self.__price
 
 
 if __name__ == '__main__':
@@ -49,17 +43,17 @@ if __name__ == '__main__':
         print(product1.price)
         print(product1.quantity)
 
-        product3 = Product.new_product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера",
-                            180000, 5)
+        product3 = Product.new_product(["Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера",
+                            180000, 5])
 
-        print(product2.name)
-        print(product2.description)
-        print(product2.price)
-        print(product2.quantity)
+        print(product3.name)
+        # print(product2.description)
+        # print(product2.price)
+        # print(product2.quantity)
 
-        product2.price = 150000
-
-        print(product2.name)
-        print(product2.description)
-        print(product2.price)
-        print(product2.quantity)
+        # product2.price = 150000
+        #
+        # print(product2.name)
+        # print(product2.description)
+        # print(product2.price)
+        # print(product2.quantity)
