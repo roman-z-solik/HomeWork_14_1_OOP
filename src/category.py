@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     """
     Класс Category обладает следующими свойствами:
@@ -8,13 +11,34 @@ class Category:
 
     name: str
     description: str
-    products: list
+    __products: list
     category_count = 0
     product_count = 0
 
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products if products else []
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
+
+    @property
+    def products(self):
+        products_str = ""
+        for output in self.__products:
+            products_str += (
+                f"{output.name}, {output.price} руб. Остаток:"
+                f" {output.quantity} шт.\n"
+            )
+        return products_str
+
+    def add_product(self, adding_product: Product):
+        presence: bool = False
+        for output in self.__products:
+            if adding_product.name == output.name:
+                output.price = adding_product.price
+                output.quantity = output.quantity + adding_product.quantity
+                presence = True
+        if not presence:
+            self.__products.append(adding_product)
+            Category.product_count += 1
