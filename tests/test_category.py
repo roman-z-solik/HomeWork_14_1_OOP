@@ -10,3 +10,8 @@ def test_category_init(first_category, second_category):
     assert second_category.category_count == 2
     assert first_category.product_count == 4
     assert second_category.product_count == 4
+
+
+def test_category_str(first_category, second_category):
+    assert str(first_category) == 'Смартфоны, количество продуктов: 27 шт.'
+    assert str(second_category) == 'Телевизоры, количество продуктов: 7 шт.'

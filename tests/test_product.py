@@ -25,3 +25,8 @@ def test_product_update(capsys, product1):
 def test_product_str():
     test_product = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     print(test_product)
+
+
+def test_product_add(product1, product2):
+    assert (product1 + product2) == 2580000.0
+
