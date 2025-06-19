@@ -24,13 +24,14 @@ class Category:
 
     @property
     def products(self):
-        products_str = ""
-        for output in self.__products:
-            products_str += (
-                f"{output.name}, {output.price} руб. Остаток:"
-                f" {output.quantity} шт.\n"
-            )
-        return products_str
+        return self.__products
+
+    def __str__(self):
+        product_count = 0
+        for product in self.__products:
+            product_count = product.quantity + product_count
+            continue
+        return f"{self.name}, количество продуктов: {product_count} шт."
 
     def add_product(self, adding_product: Product):
         presence: bool = False
